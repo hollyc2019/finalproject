@@ -16,3 +16,17 @@ read.csv("June2018Yellow.csv")
 ## Project Description
 
 The data I have chose to use is the New York City Taxi & Limousine Commission’s (TLC) dataset covering over 1.1 billion individual taxi trips in the city from January 2009 until June 2018. Analyzing this data will give me at large, a story of New York, but also give me interesting insight as to what areas of the city are trendy now compared to in the past as well as where traffic is the worst and at what times. Questions like: how bad is the rush hour traffic from Midtown to JFK? and What times do investment bankers get to work? are both questions that I could answer from this dataset. I am particularly interested in how ride-hailing services like Uber have changed the city’s landscape for taxis. This is especially timely research because of NYC’s recent cap on Uber/Lyft drivers and cars over that last few months. 
+
+## Raw Data
+
+Given the size of the data, I will need to cut it down substantially for my needs once I decide what questions I'd like to ask/areas I'd like to analyze further. I found the data from this URL: http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
+I will focus my attention on the latest 2018 data, most likely narrowing my scope to the most recent June dataset. I have not yet decided if I will be able to/want to use all the different types of trip records (Yellow - standard taxi, Green - fuel efficient taxi, and FHV - for hire vehicle). 
+
+## Past homework data import
+
+I will need help to cut down the datasets for my final project, so in the meantime I'll import a dataset we've used in the past to show that I know how to add data to a repo and push it to GitHub.
+
+```{r}
+
+```
+
