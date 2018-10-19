@@ -1,0 +1,17 @@
+---
+title: "FinalProject"
+author: "Holly Christensen"
+date: "October 19, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(dplyr)
+read.csv()
+```
+
+## Project Description
+
+The data I have chose to use is the New York City Taxi & Limousine Commission’s (TLC) dataset covering over 1.1 billion individual taxi trips in the city from January 2009 until June 2018. Analyzing this data will give me at large, a story of New York, but also give me interesting insight as to what areas of the city are trendy now compared to in the past as well as where traffic is the worst and at what times. Questions like: how bad is the rush hour traffic from Midtown to JFK? and What times do investment bankers get to work? are both questions that I could answer from this dataset. I am particularly interested in how ride-hailing services like Uber have changed the city’s landscape for taxis. This is especially timely research because of NYC’s recent cap on Uber/Lyft drivers and cars over that last few months. 
