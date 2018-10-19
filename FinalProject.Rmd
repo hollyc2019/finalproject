@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(dplyr)
 library(readxl)
-read.csv("May2018Yellow.csv")
-read.csv("June2018Yellow.csv")
+#read.csv("May2018Yellow.csv")
+#read.csv("June2018Yellow.csv")
 ```
 
 ## Project Description
