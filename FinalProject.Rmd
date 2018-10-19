@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(dplyr)
+library(readxl)
 read.csv("May2018Yellow.csv")
 read.csv("June2018Yellow.csv")
 ```
@@ -27,6 +28,6 @@ I will focus my attention on the latest 2018 data, most likely narrowing my scop
 I will need help to cut down the datasets for my final project, so in the meantime I'll import a dataset we've used in the past to show that I know how to add data to a repo and push it to GitHub.
 
 ```{r}
-
+raw2018 <- read_excel("/Users/hollychristensen/Desktop/class_2018-10-15/2018data.xlsx", skip = 2)
 ```
 
