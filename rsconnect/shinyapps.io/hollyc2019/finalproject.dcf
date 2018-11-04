@@ -1,0 +1,12 @@
+name: finalproject
+title: finalproject
+username:
+account: hollyc2019
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 552000
+bundleId: 1681404
+url: https://hollyc2019.shinyapps.io/finalproject/
+when: 1541363098.9017
+asMultiple: FALSE
+asStatic: FALSE
