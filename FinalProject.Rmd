@@ -27,52 +27,27 @@ ui <- fluidPage(titlePanel("Manhattan Housing Data"), h2("by Holly Christensen")
             value = c(25, 40), pre = "$"), radioButtons("typeInput", "Housing type",
             choices = c("ONE FAMILY", "TWO FAMILY", "THREE FAMILY", "RENTAL WALK-UP", "RENTAL ELEVATOR", "COOP WALK-UP", "COOP ELEVATOR")), selectInput("areaInput", "Neighborhood",
             choices = c("ALPHABET CITY", "CHELSEA", "CHINATOWN", "CIVIC CENTER", "CLINTON", "EAST VILLAGE", "FASHION", "FINANCIAL", "FLATIRON", "GRAMERCY", "GREENWICH VILLAGE-CENTRAL", "GREENWICH VILLAGE-WEST", "HARLEM-CENTRAL", "HARLEM-EAST", "HARLEM-UPPER", "HARLEM-WEST", "INWOOD", "JAVITS CENTER", "KIPS BAY", "LITTLE ITALY", "LOWER EAST SIDE", "MANHATTAN VALLEY", "MIDTOWN CBD", "MIDTOWN EAST", "MIDTOWN WEST", "MORNINGSIDE HEIGHTS", "MURRAY HILL", "ROOSEVELT ISLAND", "SOHO", "SOUTHBRIDGE", "TRIBECA", "UPPER EAST SIDE (59-79)", "UPPER EAST SIDE (79-96)", "UPPER EAST SIDE (96-110)", "UPPER WEST SIDE (59-79)", "UPPER WEST SIDE (79-96)", "UPPER WEST SIDE (96-116)", "WASHINGTON HEIGHTS LOWER", "WASHINGTON HEIGHTS UPPER"))),
-  mainPanel("the results will go here")))
-server <- function(input, output) {}
-shinyApp(ui = ui, server = server)
-```
-
-
-```{r}
-# Define UI for application that draws a histogram
-ui <- fluidPage(
-   
-   # Application title
-   titlePanel("Manhattan Housing Data"),
-   
-   # Sidebar with a slider input for number of bins 
-   sidebarLayout(
-      sidebarPanel(
-         sliderInput("bins",
-                     "Number of bins:",
-                     min = 1,
-                     max = 50,
-                     value = 30)
-      ),
-      
-      # Show a plot of the generated distribution
       mainPanel(
-         plotOutput("distPlot")
-      )
-   )
+      plotOutput("coolplot"),
+      br(), br(),
+      tableOutput("results")
+    )
+  )
 )
-
-# Define server logic required to draw a histogram
 server <- function(input, output) {
-   
-   output$distPlot <- renderPlot({
-      # generate bins based on input$bins from ui.R
-      x    <- faithful[, 2] 
-      bins <- seq(min(x), max(x), length.out = input$bins + 1)
+  output$coolplot <- renderPlot({
       
-      # draw the histogram with the specified number of bins
-      hist(x, breaks = bins, col = 'darkgray', border = 'white')
+      ggplot(data = manhattan, aes(x = `BUILDING CLASS CATEGORY`, y = `SALE PRICE`, color = `BUILDING CLASS CATEGORY`)) +
+        geom_boxplot() +
+        labs(x = "Building Class",
+             y = "Price",
+             title = "Real Estate Pricing by Building Class")
+      
    })
 }
-
-# Run the application 
 shinyApp(ui = ui, server = server)
 ```
+
 
 ## Project Description
 
