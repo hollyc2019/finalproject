@@ -1,8 +1,9 @@
 ---
-title: "FinalProject"
+title: "Final Project"
 author: "Holly Christensen"
 date: "October 19, 2018"
 output: html_document
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
@@ -20,7 +21,7 @@ manhattan <- rollingsales_manhattan %>%
 
 ```
 
-```{r}
+```{r, echo=FALSE}
 library(shiny)
 ui <- fluidPage(titlePanel("Manhattan Housing Data"), h2("by Holly Christensen"), sidebarLayout(
   sidebarPanel(sliderInput("priceInput", "Price", min = 0, max = 10000000,
@@ -63,6 +64,6 @@ I will focus my attention on the latest 2018 data, most likely narrowing my scop
 I will need help to cut down the datasets for my final project, so in the meantime I'll import a dataset we've used in the past to show that I know how to add data to a repo and push it to GitHub.
 
 ```{r}
-raw2018 <- read_excel("/Users/hollychristensen/Desktop/class_2018-10-15/2018data.xlsx", skip = 2)
+#raw2018 <- read_excel("/Users/hollychristensen/Desktop/class_2018-10-15/2018data.xlsx", skip = 2)
 ```
 
