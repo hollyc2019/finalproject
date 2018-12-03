@@ -1,0 +1,71 @@
+---
+title: "leaflet map"
+author: "Holly Christensen"
+date: "December 2, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaflet)
+library(tidyverse)
+library(ggmap)
+devtools::install_github("dkahle/ggmap")
+```
+
+```{r}
+geocode("55 East 52nd St, New York, NY 10055")
+
+leaflet() %>% 
+ addTiles() %>% 
+  addProviderTiles("CartoDB")  %>% 
+setView(lng = -73.973180, 
+         lat = 40.758470, 
+         zoom = 14) %>% 
+  addMarkers(lng = -73.973180, 
+                lat = 40.758470, label = "Blackrock NYC Office") %>% 
+  setMaxBounds(lng1 = -74.010790, 
+                  lat1 = 40.880550, 
+                  lng2 = -73.916723, 
+                  lat2 = 40.682318)
+```
+
+```{r}
+latlong <- manhattan %>% 
+  mutate(coord = geocode(manhattan$ADDRESS))
+
+ggmap_credentials()
+locations <- c(manhattan$ADDRESS) %>%
+    geocode()
+```
+
+```{r}
+api <- "AIzaSyDviRTjYdDhhMWp2mqPi-53ozUXXRZAqXg"
+# Text file with the API key
+register_google(key = api)
+# registering my specific API key to run geocode function properly 
+```
+
+```{r}
+# creating geocode function
+geocodeAddress <- function(address) {
+  require(RJSONIO)
+  url <- "http://maps.google.com/maps/api/geocode/json?address="
+  url <- URLencode(paste(url, address, "&sensor=false", sep = ""))
+  x <- fromJSON(url, simplify = FALSE)
+  if (x$status == "OK") {
+    out <- c(x$results[[1]]$geometry$location$lng,
+             x$results[[1]]$geometry$location$lat)
+  } else {
+    out <- NA
+  }
+  Sys.sleep(0.2)  # API only allows 5 requests per second
+  out
+}
+```
+
+```{r}
+# trying the manual geocode function I made
+geocodeAddress("189 EAST 7TH STREET New York City")
+```
+
